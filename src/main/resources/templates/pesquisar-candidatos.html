@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymeleaf.org">
+
+<head th:replace="index :: header">
+<body>
+	<nav th:replace="index :: menu"></nav>
+
+	<h6>Pesquisa de Candidatos</h6>
+	<hr />
+	<form action="/pesquisarCandidato" method="post">
+		<fieldset class="col s6">
+			<div class="row">
+				<div class="input-field col s6">
+					<input placeholder="Digite o nome" id="nome" name="nome"
+						type="text" class="validate"> <label for="nome">Nome</label>
+				</div>
+			</div>
+			<button class="btn waves-effect waves-light">Pesquisar</button>
+		</fieldset>
+	</form>
+	<hr />
+
+	<table class="striped">
+		<tr>
+			<th>Cpf</th>
+			<th>Nome</th>
+			<th>E-mail</th>
+			<th>Data de Nascimento</th>
+			<th>Sexo</th>
+			<th>Estado</th>
+			<th>Foto</th>
+			<th>Ensino Médio</th>
+			<th>Salário desejado</th>
+			<th>Currículo</th>
+			<th>..</th>
+		</tr>
+		<tr th:each="aux : ${colecao}">
+			<td th:text="${aux.cpf}">&nbsp;</td>
+			<td th:text="${aux.nome}">&nbsp;</td>
+			<td th:text="${aux.email}">&nbsp;</td>
+			<td th:text="${#temporals.format(aux.dtNasc, 'dd/MM/yyyy')}">&nbsp;</td>
+			<td th:text="${aux.sexo}">&nbsp;</td>
+			<td th:text="${aux.estados}">&nbsp;</td>
+			<td th:text="${aux.foto}">&nbsp;</td>
+			<td th:text="${aux.anoConclusao}">&nbsp;</td>
+			<td th:text="${aux.salarioDesejado}">&nbsp;</td>
+			<td th:text="${aux.curriculo}">&nbsp;</td>
+			<td><a class="btn-floating btn-small waves-light blue"
+				th:href="|editarCandidato?codigo=${aux.codigo}|"> <i
+					class="material-icons">edit</i></a> <a
+				class="btn-floating btn-small waves-light red"
+				th:href="|removerCandidato?codigo=${aux.codigo}|"> <i
+					class="material-icons">remove_circle</i></a></td>
+		</tr>
+	</table>
+
+	<footer th:replace="index :: footer"></footer>
+
+</body>
+</html>

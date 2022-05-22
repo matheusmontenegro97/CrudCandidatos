@@ -1,0 +1,48 @@
+body {    
+  padding-left: 100px;    
+  padding-right: 100px;    
+  min-width: 240px;   
+    width: 100%;    
+   
+}
+main {    
+  padding: 0 20px;    
+  width: 100%;  
+  height: 400px;  
+}
+main, nav {    
+  position: relative;    
+}
+/*
+
+header, footer {    
+  margin-left: -20px;    
+  margin-right: -10px;       
+}
+main, nav, aside {    
+  position: relative;    
+  float: left;    
+}
+main {    
+  padding: 0 20px;    
+  width: 100%;    
+}
+nav {    
+  width: 180px;    
+  padding: 0 10px;    
+  right: 240px;    
+  margin-left: -100%;    
+}
+aside {    
+  width: 130px;    
+  padding: 0 10px;    
+  margin-right: -100%;    
+}
+footer, header, nav {    
+  clear: both;    
+}
+html nav {    
+  left: 150px;    
+}
+ 
+*/

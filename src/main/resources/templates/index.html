@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymeleaf.org">
+<head th:fragment="header">
+<meta charset="UTF-8">
+<title>RH - Cadastro de Candidatos</title>
+<!-- Compiled and minified CSS -->
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+<!-- Compiled and minified JavaScript -->
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+<link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+	<nav th:fragment="menu">
+		<div class="nav-wrapper">
+			<a href="/" class="brand-logo right">RH</a>
+			<ul id="nav-mobile" class="left hide-on-med-and-down">
+				<li><a href="cadCandidato">Cadastrar Candidatos</a></li>
+				<li><a href="findCandidato">Pesquisar Candidatos</a></li>
+			</ul>
+		</div>
+	</nav>
+	<main>
+		<div class="row">Sistema para gerenciar o cadastro de candidatos à vagas de emprego</div>
+	</main>
+
+	<footer class="page-footer" th:fragment="footer">
+		<div class="container">
+			<div class="row">
+				<div class="col l6 s12">
+					<h6 class="white-text">RH</h6>
+
+				</div>
+				<div class="col l4 offset-l2 s12">
+					<h5 class="white-text">@rh</h5>
+
+				</div>
+			</div>
+		</div>
+		<div class="footer-copyright">
+			<div class="container">© 2022 Copyright Text</div>
+		</div>
+	</footer>
+</body>
+</html>

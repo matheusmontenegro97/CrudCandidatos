@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymeleaf.org">
+
+<head th:replace="index :: header">
+
+<body>
+
+<nav th:replace="index :: menu"></nav>
+
+	<h6>Cadastrar/Editar Candidatos</h6>
+
+	<hr />
+	<form action="/salvarCandidato" method="post" th:object="${candidato}">
+		<input type="hidden" th:field="*{codigo}">
+		<fieldset class="col s6">
+		
+		<div class="input-field col s6">
+					<input placeholder="Digite o cpf" id="cpf" th:field="*{cpf}"
+						type="text" class="validate"> <label for="cpf">Cpf</label>
+				</div>
+		
+			<div class="row">
+				<div class="input-field col s6">
+					<input placeholder="Digite o nome" id="nome" th:field="*{nome}"
+						type="text" class="validate"> <label for="nome">Nome</label>
+				</div>
+				
+
+			</div>
+			<div class="row">
+				<div class="input-field col s6">
+					<input placeholder="Digite o e-mail" id="email" th:field="*{email}"
+						type="email" class="validate"> <label for="email">E-mail</label>
+				</div>
+				<div class="input-field col s6">
+					<input placeholder="Digite a data de nascimento"
+						id="dtNasc" th:field="*{dtNasc}" type="date"
+						class="validate"> <label for="dataNascimento">Data
+						Nascimento</label>
+				</div>
+			</div>
+			
+				<div class="input-field col s6">
+				<div>
+					<label>Áreas:
+					        <input type="checkbox" name="areas"
+					            th:each="area : ${areas}"
+					            th:text="${area}"
+					            th:value="${areas}"
+					            th:field="$*{areas}"
+					        />
+					    </label>
+				</div>
+				</div>
+			
+			
+			<div class="row">
+
+				<div class="input-field col s6">
+					<div>
+						<label for="sexo">Sexo</label>
+						<br/>
+						<label th:each="s : ${T(br.ifpe.web.enums.Sexo).values()}">
+							<input type="radio" th:value="${s}" th:field="*{sexo}"> <span
+							th:text="${s}"></span>
+						</label>
+					</div>
+				</div>
+				
+				<div class="input-field col s6">
+				<div>
+					<label for="estado">Estado</label>
+					<select class="browser-default">
+						<option th:each="uf : ${T(br.ifpe.web.enums.Estados).values()}" 
+						th:text="${uf.nome}"
+						th:value="${uf}"
+						> </option>
+					</select>
+				</div>
+				</div>
+				
+			<div class="input-field col s6">
+			<div>
+				<label for="foto">Foto:</label>
+				<input type="file"
+       				id="foto" name="foto" th:field="*{foto}"
+       				accept="image/png, image/jpeg">
+				</div>
+			</div>
+			</div>
+			
+			<div class="input-field col s6">
+				<div>
+				<label for="anoConclusao">Ensino Médio</label>
+				<input type="number" id="anoConclusao"  min="1950" name="anoConclusao" th:field="*{anoConclusao}">
+				</div>
+			</div>
+			
+			<div class="input-field col s6">
+				<div>
+				<label for="salarioDesejado">Salário Desejado</label>
+				<input type="number" id="salarioDesejado"  step="100" name="salarioDesejado" th:field="*{salarioDesejado}">
+				</div>
+			</div>
+			
+			<div class="input-field col s6">
+			<div>
+				<label for="curriculo">Curriculo:</label>
+				<input type="file"
+       				id="curriculo" name="curriculo" th:field="*{curriculo}"
+       				accept=".doc,.docx,.pdf">
+				</div>
+			</div>
+			
+			<button class="btn waves-effect waves-light">Salvar</button>
+		</fieldset>
+	</form>
+
+<footer th:replace="index :: footer"></footer>
+
+</body>
+</html>
